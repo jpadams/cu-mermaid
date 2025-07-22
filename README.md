@@ -58,7 +58,7 @@ graph LR
 agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MCP"]
 
 %% Container 3
-    subgraph Container 3 [container: ubuntu]
+    subgraph Container 3 [dagger container: ubuntu]
       rev3["📂 guestbook-go<br/><code>feature/env3</code>"]
       rev3a["📁 .dagger/"]
       rev3b["📁 public/"]
@@ -76,7 +76,7 @@ agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MC
     end
     
     %% Container 2
-    subgraph Container 2 [container: ubuntu]
+    subgraph Container 2 [dagger container: ubuntu]
       rev2["📂 guestbook-go<br/><code>feature/env2</code>"]
       rev2a["📁 .dagger/"]
       rev2b["📁 public/"]
@@ -94,7 +94,7 @@ agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MC
     end
 
 %% Container 1
-    subgraph Container 1 [container: ubuntu]
+    subgraph Container 1 [dagger container: ubuntu]
       rev1["📂 guestbook-go<br/><code>feature/env1</code>"]
       rev1a["📁 .dagger/"]
       rev1b["📁 public/"]
