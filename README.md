@@ -15,9 +15,9 @@ graph LR
     feature([feature branch])
 
     %% Fan out to parallel agents
-    rev1([🤖 env1-ctr-wrktree])
-    rev2([🤖 env2-ctr-wrktree])
-    rev3([🤖 env3-ctr-wrktree])
+    rev1([🤖 env1-container-worktree])
+    rev2([🤖 env2-container-worktree])
+    rev3([🤖 env3-container-worktree])
 
     %% Final merge
     best([👍 best candidate])
@@ -53,21 +53,19 @@ graph LR
   }
 } }%%
 
-graph LR
+graph TD
 
 agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MCP"]
 
 %% Container 3
     subgraph Container 3 [dagger container: ubuntu]
-      rev3["📂 guestbook-go<br/><code>feature/env3</code>"]
-      rev3a["📁 .dagger/"]
+      rev3["environment 3"]
       rev3b["📁 public/"]
-      rev3bb["&nbsp;&nbsp;📄 index.html"]
+      rev3bb["&nbsp;&nbsp;📄 index.html (ver 3)"]
       rev3c["📄 go.mod"]
       rev3d["📄 go.sum"]
       rev3e["📄 main.go"]
 
-      rev3 --> rev3a
       rev3 --> rev3b
       rev3b --> rev3bb
       rev3 --> rev3c
@@ -77,15 +75,13 @@ agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MC
     
     %% Container 2
     subgraph Container 2 [dagger container: ubuntu]
-      rev2["📂 guestbook-go<br/><code>feature/env2</code>"]
-      rev2a["📁 .dagger/"]
+      rev2["environment 2"]
       rev2b["📁 public/"]
-      rev2bb["&nbsp;&nbsp;📄 index.html"]
+      rev2bb["&nbsp;&nbsp;📄 index.html (ver 2)"]
       rev2c["📄 go.mod"]
       rev2d["📄 go.sum"]
       rev2e["📄 main.go"]
 
-      rev2 --> rev2a
       rev2 --> rev2b
       rev2b --> rev2bb
       rev2 --> rev2c
@@ -95,15 +91,13 @@ agent["Dev 🧑‍💻 via container-use CLI<br/>Agent 🤖 via container-use MC
 
 %% Container 1
     subgraph Container 1 [dagger container: ubuntu]
-      rev1["📂 guestbook-go<br/><code>feature/env1</code>"]
-      rev1a["📁 .dagger/"]
+      rev1["environment 1"]
       rev1b["📁 public/"]
-      rev1bb["&nbsp;&nbsp;📄 index.html"]
+      rev1bb["&nbsp;&nbsp;📄 index.html (ver 1)"]
       rev1c["📄 go.mod"]
       rev1d["📄 go.sum"]
       rev1e["📄 main.go"]
 
-      rev1 --> rev1a
       rev1 --> rev1b
       rev1b --> rev1bb
       rev1 --> rev1c
